@@ -4,7 +4,7 @@ title: Installing OpenCV 2.4.11 with Python 2.7.11 in a virtualenv in Ubuntu 14.
 category: computer vision
 ---
 
-I spent a couple of days last week setting up my brand new [Lenovo Y50-70][laptop] laptop and thought I will save time for others wanting to do setup a computer vision environment by sharing the steps. 
+I spent a couple of days last week setting up my brand new [Lenovo Y50-70][laptop] laptop. I thought will save time for others wanting to setup a computer vision environment by sharing the steps. 
 
 First let me detail the quirks needed to dual boot Ubuntu with Windows 10. Disable only the fast-startup option under power settings in Windows 10. No need to disable UEFI or Secureboot. To get the ubuntu amd64 installer to stop hanging (if it hangs for you), edit the linux options in the grub-like installer purple screen and remove `quiet splash` and add `nomodeset`. In addition, skipp the wifi addition so that the install completes as quick as possible. Then enable wifi. If you experience very choppy wifi, then disable 802.11 n in your router. Yes I know the specs for the laptop say it supports 802.11n but sadly it did not work for me. Finally change the settings in Ubuntu 'Software & Updates' app to point to the 'Main Server'. It turned out that the Indian Mirror which it used based on location did not have the recent updates to the nvidia-drivers which prevented me from enabling nvidia-drivers until I made the switch. Then install the drivers and restricted addons for media using the following commands:
 
