@@ -6,7 +6,9 @@ rdiscount:
 gems:
   - jekyll-sitemap
 
-name: Zach Holman
-url: http://zachholman.com
-description: A fantastic blog that is fantastic.
-twitter: holman
+name: Ramnath K
+author: Ramnath Krishnamurthy
+url: http://ramnath-k.github.io
+description: Blog containing musings about computer vision and life from Ramnath
+twitter: ramnath_cv
+linkedin: ramnathkrishnamurthy
