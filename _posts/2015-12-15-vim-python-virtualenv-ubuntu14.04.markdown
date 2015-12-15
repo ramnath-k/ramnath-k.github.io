@@ -5,7 +5,7 @@ category: programming
 comments: True
 ---
 
-In the last [post][ubuntu_opencv2] we saw how to setup OpenCV 2.4.11 with Python 2.7.11 in a virtualenv. The next step of course is to setup an editor for Python and I use Vim as my main editor for Python. Now since we installed all scientific packages (numpy, OpenCV etc.) in a virtualenv, we need to compile Vim from source with the version of Python in the virtualenv. Using `sudo apt-get install vim` to install vim causes errors when using the autocomplete package '[jedi-vim][jedi-vim]'. The steps are as follows:
+In the last [post][ubuntu-opencv2] we saw how to setup OpenCV 2.4.11 with Python 2.7.11 in a virtualenv. The next step of course is to setup an editor for Python and I use Vim as my main editor for Python. Now since we installed all scientific packages (numpy, OpenCV etc.) in a virtualenv, we need to compile Vim from source with the version of Python in the virtualenv. Using `sudo apt-get install vim` to install vim causes errors when using the autocomplete package '[jedi-vim][jedi-vim]'. The steps are as follows:
 
 ```shell
 # install vim dependencies
@@ -47,6 +47,6 @@ Now open a .py file in vim and do `import cv2` and then `cv2.` to trigger jedi-v
 
 ---
 
-[ubuntu_opencv2] /2015-12-12-opencv-python-virtualenv-ubuntu14.04
+[ubuntu-opencv2] /posts/2015-12-12-opencv-python-virtualenv-ubuntu14.04
 [jedi-vim] https://github.com/davidhalter/jedi-vim/issues/485
 [dotfiles] https://github.com/ramnath-k/dotfiles
