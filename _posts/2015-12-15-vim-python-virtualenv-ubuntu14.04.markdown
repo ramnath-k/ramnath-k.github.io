@@ -47,6 +47,6 @@ Now open a .py file in vim and do `import cv2` and then `cv2.` to trigger jedi-v
 
 ---
 
-[ubuntu-opencv2] /posts/2015-12-12-opencv-python-virtualenv-ubuntu14.04
+[ubuntu-opencv2] http://ramnath.io/posts/2015-12-12-opencv-python-virtualenv-ubuntu14.04
 [jedi-vim] https://github.com/davidhalter/jedi-vim/issues/485
 [dotfiles] https://github.com/ramnath-k/dotfiles
