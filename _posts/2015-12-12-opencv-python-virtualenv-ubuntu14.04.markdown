@@ -59,7 +59,7 @@ sudo /usr/local/lib/python2.7.11/bin/python ez_setup.py
 sudo /usr/local/lib/python2.7.11/bin/easy_install pip
 sudo /usr/local/lib/python2.7.11/bin/pip install virtualenv virtualenvwrapper
 echo 'export PATH=$PATH:/usr/local/lib/python2.7.11/bin/' >> ~/.bashrc
-echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
+echo 'source /usr/local/lib/python2.7.11/bin/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc
 ```
 
