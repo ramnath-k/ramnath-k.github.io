@@ -38,7 +38,7 @@ sudo apt-get install -y checkinstall cmake pkg-config yasm libjasper-dev \
 libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev \
 libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev \
 libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev \
-libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 unzip
+libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 unzip v4l-utils
 ```
 
 Then download the latest Python 2.7 from [python.org][python2] and cd to download directory and compile it using the following commands:
@@ -85,8 +85,14 @@ mkdir release
 cd release
 cmake -D MAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$VIRTUAL_ENV/local/ \
 -D PYTHON_EXECUTABLE=$VIRTUAL_ENV/bin/python \
+-D PYTHON_LIBRARY=/usr/local/lib/python2.7.11/lib/ \
+-D PYTHON_INCLUDE=/usr/local/lib/python2.7.11/include \
 -D PYTHON_PACKAGES_PATH=$VIRTUAL_ENV/lib/python2.7/site-packages \
--D INSTALL_PYTHON_EXAMPLES=ON ..
+-D BUILD_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON \
+_D INSTALL_C_EXAMPLES=ON -D WITH_V4L=ON \
+-D CUDA_GENERATION=Auto -D WITH_CUBLAS=1 \
+-D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 \
+-D WITH_OPENGL=ON -D WITH_QT=ON ..
 make -j7
 make install
 ```
