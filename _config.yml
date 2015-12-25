@@ -12,3 +12,5 @@ url: http://ramnath-k.github.io
 description: Blog containing musings about computer vision and life from Ramnath
 twitter: ramnath_cv
 linkedin: ramnathkrishnamurthy
+highlighter: pygments
+

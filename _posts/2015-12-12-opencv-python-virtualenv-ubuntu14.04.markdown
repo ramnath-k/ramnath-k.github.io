@@ -9,17 +9,17 @@ I spent a couple of days last week setting up my brand new [Lenovo Y50-70][lapto
 
 First let me detail the quirks needed to dual boot Ubuntu with Windows 10. Disable only the fast-startup option under power settings in Windows 10. No need to disable UEFI or Secureboot. To get the ubuntu amd64 installer to stop hanging (if it hangs for you), edit the linux options in the grub-like installer purple screen and remove `quiet splash` and add `nomodeset`. In addition, skip the wifi addition so that the install completes as quick as possible. Then enable wifi. If you experience very choppy wifi, then disable 802.11n in your router. Yes I know the specs for the laptop say it supports 802.11n but sadly it did not work for me. Finally change the settings in Ubuntu 'Software & Updates' app to point to the 'Main Server'. It turned out that the Indian Mirror which it used based on location did not have the recent updates to the nvidia-drivers which prevented me from enabling nvidia-drivers until I made the switch. Then install the drivers and restricted addons for media using the following commands:
 
-```shell
+{% highlight bash %}
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install -y ubuntu-restricted-addons
 sudo apt-get install -y ubuntu-restricted-extras
 sudo apt-get install -y nvidia-352
-```
+{% endhighlight %}
 
 Next install basic packages for compiling Python and computer vision libraries using the following commands:
 
-```shell
+{% highlight bash %}
 # for compiling python from source
 sudo apt-get install -y build-essential zlib1g-dev gcc-multilib g++-multilib \
 libffi-dev libffi6 libffi6-dbg python-crypto python-mox3 python-pil python-ply \
@@ -39,21 +39,21 @@ libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev \
 libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev \
 libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev \
 libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 unzip v4l-utils
-```
+{% endhighlight %}
 
 Then download the latest Python 2.7 from [python.org][python2] and cd to download directory and compile it using the following commands:
 
-```shell
+{% highlight bash %}
 tar -xf Python-2.7.11.tar.xz
 cd Python-2.7.11
 ./configure --prefix /usr/local/lib/python2.7.11 --enable-ipv6 --enable-unicode=ucs4 --enable-shared
 make
 sudo make install
-```
+{% endhighlight %}
 
 Now we can install the setuptools, pip and virtualenv packages for this latest python.
 
-```shell
+{% highlight bash %}
 wget https://bootstrap.pypa.io/ez_setup.py
 sudo /usr/local/lib/python2.7.11/bin/python ez_setup.py
 sudo /usr/local/lib/python2.7.11/bin/easy_install pip
@@ -61,11 +61,11 @@ sudo /usr/local/lib/python2.7.11/bin/pip install virtualenv virtualenvwrapper
 echo 'export PATH=$PATH:/usr/local/lib/python2.7.11/bin/' >> ~/.bashrc
 echo 'source /usr/local/lib/python2.7.11/bin/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc
-```
+{% endhighlight %}
 
 Now we are ready to create a virtualenv from the latest version of Python and install packages in it using the following commands:
 
-```shell
+{% highlight bash %}
 mkvirtualenv opencv2
 workon opencv2
 pip install numpy 
@@ -74,21 +74,21 @@ pip install matplotlib
 # verify that a simple snippet like plt.plot([1,2,3]) produces a plot when executed as a python script
 pip install scikit-learn
 pip install -U scikit-image
-```
+{% endhighlight %}
 
 Now it's time to download the CUDA toolkit from [NVIDIA][nvidia]. It is quite a large download (approximately 2GB). cd to the directory where the deb files is downloaded and execute the following commands:
 
-```shell
+{% highlight bash %}
 sudo dpkg -i cuda-repo-ubuntu1404-7-5-local_7.5-18_amd64.deb
 sudo apt-get update
 sudo apt-get install cuda
-```
+{% endhighlight %}
 
 Now cuda will be installed in `/usr/local/cuda`. We need to add this to the library path using `sudo sudo ldconfig /usr/local/cuda/lib64`. This ensures CUDA will be detected by opencv compiler.
 
 Finally it is time to compile Opencv2.4.11 with Python bindings into the virtualenv. Download opencv-2.4.11.zip from [opencv.org][opencv2] and cd to the folder where it is saved.
 
-```shell
+{% highlight bash %}
 unzip opencv-2.4.11.zip
 cd opencv-2.4.11
 mkdir release
@@ -104,7 +104,7 @@ _D INSTALL_C_EXAMPLES=ON -D WITH_V4L=ON \
 -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_TBB=ON ..
 make -j7
 make install
-```
+{% endhighlight %}
 
 Verify that OpenCV2 is successfully installed by launching `python` from the virtualenv and doing `import cv2` followed by `cv2.__version__`. 
 
