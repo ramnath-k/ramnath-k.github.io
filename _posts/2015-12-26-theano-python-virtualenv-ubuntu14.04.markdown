@@ -6,6 +6,7 @@ comments: True
 ---
 
 In a previous [post][opencv2] we saw how to setup OpenCV 2.4.11 with Python 2.7.11 in a virtualenv with GPU support. Now let's set up Theano to do some fast GPU training of neural nets. Actually installing Theano is as easy as executing the following command `pip install theano` after activating the virtualenv which has numpy installed. Now we need to tell Theano to use the GPU. Add the following lines to the file .theanorc in your home folder:
+
 ``shell
 [cuda]
 root = /usr/local/cuda
