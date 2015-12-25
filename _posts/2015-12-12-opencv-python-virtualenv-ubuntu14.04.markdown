@@ -76,6 +76,16 @@ pip install scikit-learn
 pip install -U scikit-image
 ```
 
+Now it's time to download the CUDA toolkit from [NVIDIA][nvidia]. It is quite a large download (approximately 2GB). cd to the directory where the deb files is downloaded and execute the following commands:
+
+```shell
+sudo dpkg -i cuda-repo-ubuntu1404-7-5-local_7.5-18_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda
+```
+
+Now cuda will be installed in `/usr/local/cuda`. We need to add this to the library path using `sudo sudo ldconfig /usr/local/cuda/lib64`. This ensures CUDA will be detected by opencv compiler.
+
 Finally it is time to compile Opencv2.4.11 with Python bindings into the virtualenv. Download opencv-2.4.11.zip from [opencv.org][opencv2] and cd to the folder where it is saved.
 
 ```shell
@@ -103,3 +113,5 @@ Verify that OpenCV2 is successfully installed by launching `python` from the vir
 [laptop]: http://shopap.lenovo.com/in/en/laptops/lenovo/y-series/y50/
 [python2]: https://www.python.org/downloads/
 [opencv2]: http://opencv.org/downloads.html
+[nvidia]: https://developer.nvidia.com/cuda-downloads
+
