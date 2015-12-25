@@ -18,7 +18,23 @@ floatX = float32
 
 The cuda section tells Theano where to find the cuda libraries and the global section tells Theano to use the first gpu (or the only gpu if you have only one) and since GPU speedups are much more significant for float32 computations we set the floatX parameter to equal float32.
 
-That's it. You have Theano installed and ready to use.
+That's it. You have Theano installed and ready to use. You can check it by opening the python console and typing `import theano`. It should say it is using your GPU.
+
+Possible issues:
+If when running `import theano` you get an error about shared library objects that looks something like below
+
+```shell
+/usr/bin/ld: /usr/local/lib/libpython2.7.a(abstract.o): relocation R_X86_64_32S against `_Py_NotImplementedStruct' can not be used when making a shared object; recompile with -fPIC
+
+/usr/local/lib/libpython2.7.a: error adding symbols: Bad value
+
+collect2: error: ld returned 1 exit status
+
+error: command 'gcc' failed with exit status 1
+```
+
+then it means that your python was not compiled with the `--enable-shared` option. This option creates the `libpython*.so` file in your python installation directory which is required for Theano.
+
 
 ---
 
