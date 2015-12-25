@@ -46,7 +46,7 @@ Then download the latest Python 2.7 from [python.org][python2] and cd to downloa
 ```shell
 tar -xf Python-2.7.11.tar.xz
 cd Python-2.7.11
-./configure --prefix /usr/local/lib/python2.7.11 --enable-ipv6
+./configure --prefix /usr/local/lib/python2.7.11 --enable-ipv6 --enable-unicode=ucs4 --enable-shared
 make
 sudo make install
 ```
