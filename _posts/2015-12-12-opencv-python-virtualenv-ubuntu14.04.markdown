@@ -85,7 +85,7 @@ mkdir release
 cd release
 cmake -D MAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$VIRTUAL_ENV/local/ \
 -D PYTHON_EXECUTABLE=$VIRTUAL_ENV/bin/python \
--D PYTHON_LIBRARY=/usr/local/lib/python2.7.11/lib/ \
+-D PYTHON_LIBRARY=/usr/local/lib/python2.7.11/lib/libpython2.7.so \
 -D PYTHON_INCLUDE=/usr/local/lib/python2.7.11/include \
 -D PYTHON_PACKAGES_PATH=$VIRTUAL_ENV/lib/python2.7/site-packages \
 -D BUILD_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON \
