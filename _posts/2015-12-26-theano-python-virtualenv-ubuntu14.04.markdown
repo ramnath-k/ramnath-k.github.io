@@ -19,7 +19,8 @@ The cuda section tells Theano where to find the cuda libraries and the global se
 
 That's it. You have Theano installed and ready to use. You can check it by opening the python console and typing `import theano`. It should say it is using your GPU.
 
-Possible issues:
+####Possible issues
+
 If when running `import theano` you get an error about shared library objects that looks something like below
 
 {% highlight bash %}
@@ -31,7 +32,8 @@ error: command 'gcc' failed with exit status 1
 
 then it means that your python was not compiled with the `--enable-shared` option. This option creates the libpython*.so file in your python installation directory which is required for Theano.
 
-CuDNN integration
+####CuDNN integration
+
 CuDNN can speedup Theano's neural net training on a GPU. Follow the steps to setup CUDA outlined in a [previous post][opencv2] before executing the steps here. Add the cuda library to your LD_LIBRARY_PATH by adding the following line to your ~/.bashrc
 
 {% highlight bash %}
