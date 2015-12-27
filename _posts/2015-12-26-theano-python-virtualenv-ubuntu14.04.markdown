@@ -31,7 +31,38 @@ error: command 'gcc' failed with exit status 1
 
 then it means that your python was not compiled with the `--enable-shared` option. This option creates the libpython*.so file in your python installation directory which is required for Theano.
 
+CuDNN integration
+CuDNN can speedup Theano's neural net training on a GPU. Follow the steps to setup CUDA outlined in a [previous post][opencv2] before executing the steps here. Add the cuda library to your LD_LIBRARY_PATH by adding the following line to your ~/.bashrc
+
+{% highlight bash %}
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+{% endhighlight %}
+
+Next download CuDNN from [NVIDIA developer site][cudnn]. cd to the directory where it is downloaded and untar it. Then copy over the files to `/usr/local/cuda` using the following commands:
+
+{% highlight bash %}
+tar -xvzf <cudnn_package_name>.tgz
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include/
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/
+{% endhighlight %}
+
+Now we need to let Theano know where to find it and use it. To do this add the following lines to your ~/.theanorc
+
+{% highlight bash %}
+[nvcc]
+optimizer_including=cudnn
+{% endhighlight %}
+
+Now execute the following command to test if Theano is able to detect cudnn
+
+{% highlight bash %}
+python -c 'from theano.sandbox.cuda.dnn import version; print(version())'
+{% endhighlight %}
+
+If if does not complain about GPU being unavailable then you are good to go.
+
 ---
 
 [opencv2]: /posts/opencv-python-virtualenv-ubuntu14.04/
+[cudnn]: https://developer.nvidia.com/cudnn
 

@@ -84,7 +84,7 @@ sudo apt-get update
 sudo apt-get install cuda
 {% endhighlight %}
 
-Now cuda will be installed in `/usr/local/cuda`. We need to add this to the library path using `sudo sudo ldconfig /usr/local/cuda/lib64`. This ensures CUDA will be detected by opencv compiler.
+Now cuda will be installed in `/usr/local/cuda`. We need to add this to the library path using `sudo ldconfig /usr/local/cuda/lib64`. This ensures CUDA will be detected by opencv compiler.
 
 Finally it is time to compile Opencv2.4.11 with Python bindings into the virtualenv. Download opencv-2.4.11.zip from [opencv.org][opencv2] and cd to the folder where it is saved.
 
