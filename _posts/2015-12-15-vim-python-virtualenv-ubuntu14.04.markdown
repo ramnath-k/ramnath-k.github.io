@@ -40,6 +40,8 @@ ln -s ~/.dotfiles/vim/.vim ~/.vim
 cd ~/.vim
 git submodule init
 git submodule update
+cd ~/.dotfiles/vim/.vim/bundle/jedi-vim
+git submodule update --init
 {% endhighlight %}
 
 Now open a .py file in vim and do `import cv2` and then `cv2.` to trigger jedi-vim's autocomplete. Use `Ctrl+P` to quickly search and open for files in the directory. Use `\e` to open and close the NerdTree.
