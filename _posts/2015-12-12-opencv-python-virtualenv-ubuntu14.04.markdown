@@ -25,7 +25,7 @@ sudo apt-get install -y build-essential zlib1g-dev gcc-multilib g++-multilib \
 libffi-dev libffi6 libffi6-dbg python-crypto python-mox3 python-pil python-ply \
 libssl-dev zlib1g-dev libbz2-dev libexpat1-dev libbluetooth-dev libgdbm-dev \
 dpkg-dev quilt autotools-dev libreadline-dev libtinfo-dev libncursesw5-dev \
-tk-dev blt-dev libssl-dev zlib1g-dev libbz2-dev libexpat1-dev libbluetooth-dev \
+tk-dev blt-dev zlib1g-dev libbz2-dev libexpat1-dev libbluetooth-dev \
 libsqlite3-dev libgpm2 mime-support netbase net-tools bzip2 libpng12-dev
 # for numpy
 sudo apt-get install -y libatlas-base-dev liblapack-dev gfortran cython
@@ -58,7 +58,7 @@ wget https://bootstrap.pypa.io/ez_setup.py
 sudo /usr/local/lib/python2.7.11/bin/python ez_setup.py
 sudo /usr/local/lib/python2.7.11/bin/easy_install pip
 sudo /usr/local/lib/python2.7.11/bin/pip install virtualenv virtualenvwrapper
-echo 'export PATH=$PATH:/usr/local/lib/python2.7.11/bin/' >> ~/.bashrc
+echo 'export PATH=/usr/local/lib/python2.7.11/bin/:$PATH' >> ~/.bashrc
 echo 'source /usr/local/lib/python2.7.11/bin/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc
 {% endhighlight %}
