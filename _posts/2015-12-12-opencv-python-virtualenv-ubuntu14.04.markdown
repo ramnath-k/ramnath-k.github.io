@@ -108,6 +108,17 @@ make install
 
 Verify that OpenCV2 is successfully installed by launching `python` from the virtualenv and doing `import cv2` followed by `cv2.__version__`. 
 
+To compile cpp files with OpenCV its is much easier to use pkg-config. But to do so, we need to add opencv.pc to the pkg-config path. To add the relevant lines to your ~/.bashrc use the following command:
+
+{% highlight bash %}
+echo 'export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/.virtualenvs/opencv2/local/lib/pkgconfig/' >> ~/.bashrc
+{% endhighlight %}
+
+Now you can compile you OpenCV cpp code as 
+{% highlight bash %}
+g++ main.cpp \`pkg-config opencv --cflags --libs\`
+{% endhighlight %}
+
 ---
 
 [laptop]: http://shopap.lenovo.com/in/en/laptops/lenovo/y-series/y50/
